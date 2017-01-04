@@ -30,7 +30,7 @@ void destroy_sprite(s_sprite *sprite)
 
 /**
  * \fn s_sprite *create_sprite_from_surface(SDL_Renderer *renderer, SDL_Surface *surface)
- * \brief Crée un sprite à partir d’une surface
+ * \brief Crée un sprite à partir d’une surface.
  *
  * \param renderer Le Renderer auquel le sprite doit être associée.
  * \param surface La surface à partir de laquelle le sprite doit être créé.
@@ -76,6 +76,25 @@ s_sprite *create_sprite_from_bmp(SDL_Renderer *renderer, char path[])
     SDL_Surface *tmp = load_surface(path);
     if(NULL == tmp)
         return NULL;
+    return create_sprite_from_surface(renderer, tmp);
+}
+
+/**
+ * \fn s_sprite *create_sprite_from_surface_with_color_key(SDL_Renderer *renderer, SDL_Surface *surface)
+ * \brief Crée un sprite à partir d’une surface.
+ *
+ * \param renderer Le Renderer auquel le sprite doit être associée.
+ * \param surface La surface à partir de laquelle le sprite doit être créé.
+ * 
+ * \return Le sprite créé, `NULL` en cas d’erreur.
+ *
+ * ## Remarques
+ * La surface n’est pas modifiée ni libérée par la fonction.
+ *
+ */
+s_sprite *create_sprite_from_surface_with_color_key(SDL_Renderer *renderer, SDL_Surface *surface, SDL_Color color)
+{
+    SDL_SetColorKey(surface, SDL_TRUE, SDL_MapRGB(tmp->format, color.r, color.g, color.b));
     return create_sprite_from_surface(renderer, tmp);
 }
 
