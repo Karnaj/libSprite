@@ -13,8 +13,8 @@
  
 struct s_sprite
 {
-    SDL_Texture *texture; /*!< La texture du sprite. */
-    int w; /*!< La largeur du sprite. */
+	SDL_Texture *texture; /*!< La texture du sprite. */
+	int w; /*!< La largeur du sprite. */
 	int h; /*!< La hauteur du sprite. */
 };
 typedef struct s_sprite s_sprite;
