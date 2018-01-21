@@ -3,6 +3,15 @@
 #include "sprite.h"
 #include "utils_sdl.h"
 
+
+SDL_Surface *load_surface(const char path[])
+{
+    SDL_Surface *s = SDL_LoadBMP(path);
+    if(NULL == s)
+        fprintf(stderr, "Erreur SDL_LoadBMP : %s", SDL_GetError());
+    return s;
+}
+
 s_sprite *load_sprite(char path[], SDL_Renderer *renderer, SDL_Color *key)
 {
     s_sprite *sprite = malloc(sizeof(s_sprite));
