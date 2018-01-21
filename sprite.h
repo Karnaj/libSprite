@@ -14,6 +14,7 @@ struct s_sprite
 };
 
 
+SDL_Surface *load_surface(const char path[])
 s_sprite *load_sprite(char path[], SDL_Renderer *renderer, SDL_Color *key);
 s_sprite *free_sprite(s_sprite *sprite);
 void display_sprite(SDL_Renderer *renderer, s_sprite *sprite, int x, int y);
